@@ -23,10 +23,13 @@ Docker tutorial for The Bureau
 * Type `exit` into the running container (whose bash you're interacting with) so that shell exits, which will cause the container to shut down.
 * Now do `docker ps` in the second terminal window; you’ll find that no container is running.
 # Testing with a Node Server
-* Now to make sure that we can see how the container is running the node server, we do this:
-  * Since docker containers run in a virtual network, we need to map their port to a local port using the -p flag.
-  * Docker also will capture the input in bash if we don’t run it in the background. To to this, use the -detatch or -d flag.
+* Go to `localhost:8000` - since there's nothing running there, nothing loads.
+* Check out the source code for `server.js` - that's a boilerplate NodeJS server. You can test it locally by opening Terminal (bash), browsing to that file's location on your machine, and typing in `node server.js`. If you then browse to http://localhost:8000, you'll see that the page is up. *Important:* Before continuing, please shut down this server by typing in `⌘/Ctrl + C`.
+* Now let's get the node server running in the docker container and visible through localhost:8000:
+  * Since docker containers run in a virtual network, we need to map their port to a local port using the `-p` flag.
+  * Docker also will capture the input in bash if we don’t run it in the background. To to this, use the `-detatch` or `-d` flag.
   * `docker run -d -p 8000:8000 -it <image ID> node server.js`
+  * Go to `localhost:8000` - you'll see the webpage hosted there! Eureka!
 
 * You can stop a running container using:
   * `docker ps` (to get all running container processes)
