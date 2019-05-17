@@ -29,5 +29,5 @@ Docker tutorial for The Bureau
   * `docker run -d -p 8000:8000 -it <image ID> node server.js`
 
 * You can stop a running container using:
-  * docker ps (to get all running container processes)
-  * docker stop container_id
+  * `docker ps` (to get all running container processes)
+  * `docker stop container_id`
